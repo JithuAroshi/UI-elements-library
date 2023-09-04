@@ -1,0 +1,60 @@
+::ng-deep .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+  transform-origin: top center;
+  background-color: rgb(255, 255, 255);
+  margin-top: 12px;
+  border-radius: 3px !important;
+}
+
+::ng-deep .mdc-text-field {
+  display: inline-flex;
+  align-items: baseline;
+  padding-left: 9px !important;
+  padding-right: 9px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  will-change: opacity,transform,color;
+  border: 1px;
+  border-color: #DCDFE1;
+  border-style: solid;
+  border-radius: 4px !important;
+  font-size: 13px;
+}
+::ng-deep .mdc-text-field:hover {
+  border: 1px;
+  border-color: rgba(7, 135, 123, 0.50);
+  border-style: solid;
+}
+
+::ng-deep .mat-mdc-select-value {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 14px;
+}
+
+::ng-deep .mdc-tab__text-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+:host ::ng-deep ::before, ::after {
+  box-sizing: border-box;
+  border-width: 0px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.matTabSection{
+  height: calc(100vh - 132px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// -------------------select------------------- //
+

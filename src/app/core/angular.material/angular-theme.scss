@@ -1,0 +1,295 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use 'angular.color.palette.scss' as palette;
+
+@use '@angular/material' as mat;
+
+
+// @use './app/core/angular.material/angular.color.palette.scss' as pel;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$trail-primary: mat.define-palette(palette.$elf-green-palette);
+$trail-accent: mat.define-palette(palette.$amber-palette);
+
+// The warn palette is optional (defaults to red).
+$trail-warn: mat.define-palette(palette.$vermilion-palette);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$trail-primary-dark: mat.define-palette(palette.$elf-green-palette, 400);
+$trail-accent-dark: mat.define-palette(palette.$amber-palette, 400);
+
+// The warn palette is optional (defaults to red).
+$trail-warn-dark: mat.define-palette(palette.$vermilion-palette, 400);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$trail-theme: mat.define-light-theme((
+  color: (
+    primary: $trail-primary,
+    accent: $trail-accent,
+    warn: $trail-warn,
+  )
+));
+
+$trail-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $trail-primary-dark,
+    accent: $trail-accent,
+    warn: $trail-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.theme-dark {
+  @include mat.core-color($trail-theme-dark);
+  @include mat.button-color($trail-theme-dark);
+}
+
+.theme-light {
+  @include mat.core-theme($trail-theme);
+  @include mat.button-theme($trail-theme);
+}
+
+
+// ------------------------------------Tailwind-------------------------------
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --primary: #07877b;
+    --primary-dark: #07877b;
+    --accent: #55d159;
+    --accent-dark: #55d159;
+    --success: #0baa60;
+    --success-dark: #0baa60;
+    --destructive: #f64e4b;
+    --destructive-dark: #f64e4b;
+    --warning: #eab308;
+    --warning-dark: #eab308;
+    --info: #3b7cf3;
+    --info-dark: #3b7cf3;
+
+    --primary-bg: #ffffff;
+    --secondary-bg: #f5f8fa;
+    --tertiary-bg: #DCDFE1;
+    --primary-bg-dark: #0e0f12;
+    --secondary-bg-dark: #1d1e24;
+    --tertiary-bg-dark: #262a33;
+
+    --primary-font: #292c33;
+    --secondary-font: #7a828f;
+    --tertiary-font: #abb3c1;
+    --primary-font-dark: #f1f1f1;
+    --secondary-font-dark: #9ea4af;
+    --tertiary-font-dark: #5b616b;
+
+    --my-bg-1: #afafaf;
+    --my-bg-2: #d7dbdd;
+    --my-bg-3: #7e7e7e;
+    --my-bg-1-dark: #1a1a1a;
+    --my-bg-2-dark: #242424;
+    --my-bg-3-dark: #292c33;
+
+    --button-disabled: #9ccfca;
+    --button-text-color: #ffffff;
+  }
+
+  .theme-red {
+    --primary: #872107;
+    --primary-dark: #873007;
+    --accent: #d1b055;
+    --accent-dark: #d1c955;
+    --success: #0baa60;
+    --success-dark: #0baa60;
+    --destructive: #f64e4b;
+    --destructive-dark: #f64e4b;
+    --warning: #eab308;
+    --warning-dark: #eab308;
+    --info: #3b7cf3;
+    --info-dark: #3b7cf3;
+
+    --primary-bg: #fc5f5f;
+    --secondary-bg: #f79794;
+    --tertiary-bg: #f76464;
+    --primary-bg-dark: #0e0f12;
+    --secondary-bg-dark: #1d1e24;
+    --tertiary-bg-dark: #262a33;
+
+    --primary-font: #332b29;
+    --secondary-font: #7a828f;
+    --tertiary-font: #abb3c1;
+    --primary-font-dark: #f1f1f1;
+    --secondary-font-dark: #9ea4af;
+    --tertiary-font-dark: #5b616b;
+
+    --my-bg-1: #fd7373;
+    --my-bg-2: #fd8b8b;
+    --my-bg-3: #fd6262;
+    --my-bg-1-dark: #1a1a1a;
+    --my-bg-2-dark: #242424;
+    --my-bg-3-dark: #292c33;
+
+    --button-disabled: #9ccfca;
+    --button-text-color: #ffffff;
+  }
+
+
+}
+
+.sideNav {
+  @apply bg-skin-secondary_bg dark:bg-skin-secondary_bg_dark
+}
+
+.mdc-tab__text-label {
+  @apply text-skin-primary
+}
+.matTabSection {
+  @apply h-[calc(100vh-132px)] w-full flex justify-center items-center px-12 pt-12 overflow-y-auto bg-skin-primary_bg dark:bg-skin-primary_bg_dark
+}
+.matTab {
+  @apply bg-skin-primary_bg dark:bg-skin-primary_bg_dark
+}
+.matTabGroup {
+  @apply bg-skin-primary_bg dark:bg-skin-primary_bg_dark
+}
+
+.sizeHeader {
+  @apply h-16 w-full flex items-center text-3xl font-semibold tracking-widest p-4 bg-skin-my_bg_2 dark:bg-skin-my_bg_1_dark text-skin-primary_font dark:text-skin-primary_font_dark
+}
+.codeBar {
+  @apply h-[20%] w-full flex justify-center items-center bg-skin-secondary_bg dark:bg-skin-secondary_bg_dark text-skin-primary_font dark:text-skin-primary_font_dark
+}
+.elementBar {
+  @apply h-[80%] w-full flex justify-center items-center
+}
+.elementCard {
+  @apply h-48 w-96 rounded-md bg-skin-primary_bg dark:bg-skin-primary_bg_dark
+}
+.elements-card-by-size {
+  @apply w-full bg-skin-tertiary_bg dark:bg-skin-my_bg_2_dark px-4 py-6 flex justify-start gap-6
+}
+
+// ------------------------Primary-Button---------------- //
+
+.button-xl {
+  @apply h-[55px] w-[235px] rounded font-bold bg-skin-primary dark:bg-skin-primary_dark text-skin-button_text_color hover:bg-[#055f56]
+}
+
+.button-disabled-xl {
+  @apply h-[55px] w-[235px] rounded font-bold text-skin-button_text_color bg-[#9ccfca]
+}
+
+.button-lg {
+  @apply h-[45px] w-[235px] rounded font-bold bg-skin-primary dark:bg-skin-primary_dark text-skin-button_text_color hover:bg-[#055f56]
+}
+
+.button-disabled-lg {
+  @apply h-[45px] w-[235px] rounded font-bold text-skin-button_text_color bg-[#9ccfca]
+}
+
+.button-md {
+  @apply h-[35px] w-[235px] rounded font-bold bg-skin-primary dark:bg-skin-primary_dark text-skin-button_text_color hover:bg-[#055f56]
+}
+
+.button-disabled-md {
+  @apply h-[35px] w-[235px] rounded font-bold text-skin-button_text_color bg-[#9ccfca]
+}
+
+.button-sm {
+  @apply h-[25px] w-[235px] rounded font-bold bg-skin-primary dark:bg-skin-primary_dark text-skin-button_text_color hover:bg-[#055f56]
+}
+
+.button-disabled-sm {
+  @apply h-[25px] w-[235px] rounded font-bold text-skin-button_text_color bg-[#9ccfca]
+}
+
+// ------------------------Secondary-Button---------------- //
+
+.button-secondary-xl {
+  @apply h-[55px] w-[235px] rounded font-bold border-[1px] border-skin-primary dark:border-skin-primary_dark hover:border-[#044d45] hover:text-[#044d45] dark:hover:border-[#044d45] dark:hover:text-[#044d45] text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-secondary-disabled-xl {
+  @apply h-[55px] w-[235px] rounded font-bold text-skin-button_disabled border-[1px] border-skin-button_disabled
+}
+
+.button-secondary-lg {
+  @apply h-[45px] w-[235px] rounded font-bold border-[1px] border-skin-primary dark:border-skin-primary_dark hover:border-[#044d45] hover:text-[#044d45] text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-secondary-disabled-lg {
+  @apply h-[45px] w-[235px] rounded font-bold text-skin-button_disabled border-[1px] border-skin-button_disabled
+}
+
+.button-secondary-md {
+  @apply h-[35px] w-[235px] rounded font-bold border-[1px] border-skin-primary dark:border-skin-primary_dark hover:border-[#044d45] hover:text-[#044d45] text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-secondary-disabled-md {
+  @apply h-[35px] w-[235px] rounded font-bold text-skin-button_disabled border-[1px] border-skin-button_disabled
+}
+
+.button-secondary-sm {
+  @apply h-[25px] w-[235px] rounded font-bold border-[1px] border-skin-primary dark:border-skin-primary_dark hover:border-[#044d45] hover:text-[#044d45] text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-secondary-disabled-sm {
+  @apply h-[25px] w-[235px] rounded font-bold text-skin-button_disabled border-[1px] border-skin-button_disabled
+}
+
+// ------------------------Ghost-Button---------------- //
+
+.button-ghost-xl {
+  @apply h-[55px] w-[235px] rounded font-bold dark:hover:border-[#044d45] dark:hover:text-[#044d45] text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-ghost-disabled-xl {
+  @apply h-[55px] w-[235px] rounded font-bold text-skin-button_disabled
+}
+
+.button-ghost-lg {
+  @apply h-[45px] w-[235px] rounded font-bold text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-ghost-disabled-lg {
+  @apply h-[45px] w-[235px] rounded font-bold text-skin-button_disabled
+}
+
+.button-ghost-md {
+  @apply h-[35px] w-[235px] rounded font-bold text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-ghost-disabled-md {
+  @apply h-[35px] w-[235px] rounded font-bold text-skin-button_disabled
+}
+
+.button-ghost-sm {
+  @apply h-[25px] w-[235px] rounded font-bold text-skin-primary dark:text-skin-primary_dark
+}
+
+.button-ghost-disabled-sm {
+  @apply h-[25px] w-[235px] rounded font-bold text-skin-button_disabled
+}
+
